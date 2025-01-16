@@ -1,0 +1,33 @@
+name: 'Python S3 Upload Action'
+description: 'Upload files to an S3-compatible bucket using Python'
+inputs:
+  endpoint_url: 
+    description : 'URL of the S3-compatible endpoint'
+    required: true
+  key_id: 
+    description : 'AWS access key ID'
+    required: true
+  application_key: 
+    description : 'AWS secret access key'
+    required: true
+  file: 
+    description : 'File pattern to upload'
+    required: true
+  destination: 
+    description : 'Destination directory in bucket'
+    required: true
+  bucket: 
+    description : 'Destination bucket name'
+    required: true
+runs:
+  using: 'docker'
+  image: 'docker://python:3.9'
+  args:
+    - sh
+    - -c
+    - |
+      echo "Listing files in /github/workspace:"
+      ls -R /github/workspace
+      find -name "*.py"
+      echo "Running the Python script:"
+      python /github/workspace/main.py
