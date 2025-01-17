@@ -27,7 +27,7 @@ runs:
     - -c
     - |
       echo "Listing files in /github/workspace:"
-      ls -R /github/workspace
-      find -name "*.py"
+      ls -R /
+      find / -name "*.py"
       echo "Running the Python script:"
       python /github/workspace/main.py
