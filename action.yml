@@ -30,7 +30,9 @@ runs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
+      shell: bash
 
     - name: Run the Python script
       run: |
         python main.py --endpoint_url ${{ inputs.endpoint_url }} --key_id ${{ inputs.key_id }} --application_key ${{ inputs.application_key }} --file ${{ inputs.file }} --destination ${{ inputs.destination }} --bucket ${{ inputs.bucket }}
+      shell: bash
