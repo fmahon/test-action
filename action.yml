@@ -21,13 +21,4 @@ inputs:
     required: true
 runs:
   using: 'docker'
-  image: 'docker://python:3.9'
-  args:
-    - sh
-    - -c
-    - |
-      echo "Listing files in /github/workspace:"
-      ls -R /
-      find / -name "*.py"
-      echo "Running the Python script:"
-      python /github/workspace/main.py
+  image: 'Dockerfile'
