@@ -20,17 +20,17 @@ inputs:
     description : 'Destination bucket name'
     required: true
 runs:
-using: "composite"
-steps:
-  - name: Set up Python
-    uses: actions/setup-python@v4
-    with:
-      python-version: "3.10"
+  using: "composite"
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
 
-  - name: Install dependencies
-    run: |
-      pip install -r requirements.txt
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
 
-  - name: Run the Python script
-    run: |
-      python main.py --endpoint_url ${{ inputs.endpoint_url }} --key_id ${{ inputs.key_id }} --application_key ${{ inputs.application_key }} --file ${{ inputs.file }} --destination ${{ inputs.destination }} --bucket ${{ inputs.bucket }}
+    - name: Run the Python script
+      run: |
+        python main.py --endpoint_url ${{ inputs.endpoint_url }} --key_id ${{ inputs.key_id }} --application_key ${{ inputs.application_key }} --file ${{ inputs.file }} --destination ${{ inputs.destination }} --bucket ${{ inputs.bucket }}
